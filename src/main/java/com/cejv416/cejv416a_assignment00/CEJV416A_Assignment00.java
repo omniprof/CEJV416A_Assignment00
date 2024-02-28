@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author Ken Fogel
  */
 public class CEJV416A_Assignment00 {
-
+    
     public void doAllInOne() {
         Scanner sc = new Scanner(System.in);
         double loanAmount = 0.0;
@@ -28,7 +28,7 @@ public class CEJV416A_Assignment00 {
                 System.out.println("B. Future Value");
                 System.out.println("C. Savings Goal");
                 System.out.println("D. Exit");
-                // Validate with a regular expression for a range of characters, 
+                // Validate with a regular expression for a range of characters,                 
                 // upper and lower case
                 if (sc.hasNext("[a-dA-D]")) { // Accept only a single letter String
                     // Retrieve the string from the keyboard buffer, convert it to 
@@ -47,9 +47,10 @@ public class CEJV416A_Assignment00 {
             // Menu choice
             switch (choice) {
                 case 'A' -> { // Loan payment
-                    boolean inCorrect = false; // If value is not a double or out of range
+                    boolean inCorrect; // If value is not a double or out of range
                     do {
-                        System.out.println("Enter savings goal amount, maximum: " + 1_000_000.00 + ": ");
+                        inCorrect = false;                        
+                        System.out.println("Enter loan amount, maximum: " + 1_000_000.00 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             loanAmount = sc.nextDouble(); // 
                             // Check if the number is in range
@@ -64,6 +65,7 @@ public class CEJV416A_Assignment00 {
                         sc.nextLine(); // Clean out the buffer
                     } while (inCorrect);
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter interest rate as a decimal (5% -> 0.05), maximum: " + 1.0 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             interestRate = sc.nextDouble(); // 
@@ -80,6 +82,7 @@ public class CEJV416A_Assignment00 {
                     } while (inCorrect);
 
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter the term in months: " + 120.0 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             term = sc.nextDouble(); // 
@@ -98,13 +101,14 @@ public class CEJV416A_Assignment00 {
                     var ir = interestRate / 12.0;
                     double result = loanAmount * ((ir) / (1 - Math.pow(1 + ir, -term)));
                     result = Math.round(result * 100);
-                    result /= 100;
+                    result /= 100; // result = result / 100
                     System.out.printf("Monthly payment will be %.2f.\n\n", result);
                 }
 
                 case 'B' -> { // Future Value
-                    boolean inCorrect = false; // If value is not a double or out of range
+                    boolean inCorrect; // If value is not a double or out of range
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter monthly savings amount, maximum " + 1_000.00 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             savingsAmount = sc.nextDouble(); // 
@@ -120,6 +124,7 @@ public class CEJV416A_Assignment00 {
                         sc.nextLine(); // Clean out the buffer
                     } while (inCorrect);
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter interest rate as a decimal (5% -> 0.05), maximum: " + 1.0 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             interestRate = sc.nextDouble(); // 
@@ -136,6 +141,7 @@ public class CEJV416A_Assignment00 {
                     } while (inCorrect);
 
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter the term in months: " + 120.0 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             term = sc.nextDouble(); // 
@@ -160,8 +166,9 @@ public class CEJV416A_Assignment00 {
                     
                 }
                 case 'C' -> { // Savings Goal
-                    boolean inCorrect = false; // If value is not a double or out of range
+                    boolean inCorrect; // If value is not a double or out of range
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter savings goal amount, maximum: " + 1_000_000.00 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             futureValue = sc.nextDouble(); // 
@@ -177,6 +184,7 @@ public class CEJV416A_Assignment00 {
                         sc.nextLine(); // Clean out the buffer
                     } while (inCorrect);
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter interest rate as a decimal (5% -> 0.05), maximum: " + 1.0 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             interestRate = sc.nextDouble(); // 
@@ -193,6 +201,7 @@ public class CEJV416A_Assignment00 {
                     } while (inCorrect);
 
                     do {
+                        inCorrect = false;                        
                         System.out.println("Enter the term in months: " + 120.0 + ": ");
                         if (sc.hasNextDouble()) { // Check that there is a double in the keyboard buffer
                             term = sc.nextDouble(); // 
